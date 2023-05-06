@@ -47,6 +47,8 @@ const data = [
 ];
 
 const table = document.getElementById('table');
+const AVAILABLE_TILES = 17;
+let numAddedTiles = 0;
 
 drawGrid();
 updateStats();
@@ -75,7 +77,7 @@ function removeAllChildNodes(parent) {
 
 function tdClicked(event) {
   const [x, y] = event.target.id.split('-');
-  if (data[x][y] === CELL_STATUS.black.id) {
+  if (data[x][y] === CELL_STATUS.black.id && numAddedTiles < AVAILABLE_TILES) {
     data[x][y] = CELL_STATUS.addedWhite.id;
   }
   drawGrid();
@@ -102,4 +104,5 @@ function updateStats() {
   document.getElementById('total-black').innerHTML = String(blackCount);
   document.getElementById('total-white').innerHTML = String(whiteCount);
   document.getElementById('total-added').innerHTML = String(addedCount);
+  numAddedTiles = addedCount;
 }
