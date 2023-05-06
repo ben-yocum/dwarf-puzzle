@@ -9,7 +9,7 @@ const CELL_STATUS = {
   },
   addedWhite: {
     id: 2,
-    color: '#FEFEFE'
+    color: '#DDDDDD'
   }
 }
 
